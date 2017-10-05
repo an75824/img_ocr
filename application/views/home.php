@@ -10,6 +10,10 @@
 <script src="<?=base_url('front_end/js/');?>semantic.min.js"></script>
 </head>
 <body>
-
+<div class="ui left icon input">
+<?=form_open_multipart('base/upload_file');?>
+  <input type="file">
+<?=form_close();?>
+</div>
 </body>
 </html>
