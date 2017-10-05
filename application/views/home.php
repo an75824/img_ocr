@@ -12,7 +12,8 @@
 <body>
 <div class="ui left icon input">
 <?=form_open_multipart('base/upload_file');?>
-  <input type="file">
+  <input type="file" name='the_file'>
+<input type='submit' />
 <?=form_close();?>
 </div>
 </body>
