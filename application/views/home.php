@@ -21,6 +21,9 @@
 <?=form_close();?>
 </div>
 </div>
+<div id = 'result'>
+</div>
+
 <script type='text/javascript'>
 $( document ).ready(function() {
         $('#submit_button').on('click',function(e) {
@@ -39,16 +42,16 @@ $( document ).ready(function() {
 				cache: false,
 				data : file_data,
 				success: function(response){
-					alert(response);
-					$('#file_id').val(''); //reset the file
+					//alert(response);
 					$('#loading').hide(); //hide the loading image
+					$('#file_id').val(''); //reset the file input
 					$('#main').show(); //show again the elements
+					$('#result').html(response); //show the response (modal)
 				}
 			});//end of ajax
 		}//end if
 	});
 });//end of document ready
-
 </script>
 </body>
 </html>
