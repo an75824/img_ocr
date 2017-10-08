@@ -31,10 +31,12 @@ class Base extends CI_Controller {
 			$encrypted_filename = $this->info['success_data']['file_name'];
 			$no_extension = $this->info['success_data']['raw_name'];//filename without the extension
 			$this->read_image($encrypted_filename,$no_extension);
-			$this->read_image_text($no_extension,$upload_path);
+			$data['result'] = $this->read_image_text($no_extension,$upload_path); 
+			$this->load->view('message',$data);
 		} else {
-			echo 'provlima!';
-			var_dump($this->error);
+			//echo 'provlima!';
+			//var_dump($this->error);
+			$this->load->view('error_message',$this->error);
 		}
 	}
 
@@ -44,6 +46,7 @@ class Base extends CI_Controller {
 			echo (system("tesseract /tmp/img1.jpg /tmp/test13 -l eng"));
 		}
 	}
+
 	private function read_image($filename,$no_extension)
 	{
 		if (!$this->input->is_cli_request())
@@ -57,7 +60,16 @@ class Base extends CI_Controller {
 		$image_text = $no_extension.'.txt';
 		$absolute_path = $upload_path.'/'.$image_text;
 		$file_contents = file_get_contents($absolute_path);
-		var_dump($file_contents);
+		$products = getPhrases();
+		$pos = 0;
+		foreach ($products as $product=>$value)
+		{
+			foreach ($value as $v)
+			{
+				$pos+=substr_count($file_contents,$v);
+			}
+		}
+		return $pos;
 	}
 
 	private function check_upload_process($the_file)
