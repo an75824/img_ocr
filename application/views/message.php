@@ -32,11 +32,9 @@ $( document ).ready(function() {
 		transition: 'horizontal flip',
 		duration: 1000,
 		onHide: function(){
-		//console.log('hidden');
 		$('.ui.modal').empty();
         },
         onShow: function(){
-            //console.log('shown');
         }
     }).modal('show'); //end of modal
 });//end of document ready
