@@ -34,16 +34,7 @@ class Base extends CI_Controller {
 			$data['result'] = $this->read_image_text($no_extension,$upload_path); 
 			$this->load->view('message',$data);
 		} else {
-			//echo 'provlima!';
-			//var_dump($this->error);
 			$this->load->view('error_message',$this->error);
-		}
-	}
-
-	public function test()
-	{
-		if( !$this->input->is_cli_request() ) {
-			echo (system("tesseract /tmp/img1.jpg /tmp/test13 -l eng"));
 		}
 	}
 
