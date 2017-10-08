@@ -14,7 +14,7 @@
 <script type='text/javascript'>
 $( document ).ready(function() {
 	$('.ui.modal').modal({
-		transition: 'horizontal flip',
+		transition: 'swing left',
 		duration: 1000,
 		onHide: function(){
 		$('.ui.modal').empty();
