@@ -2,8 +2,7 @@
 <html>
 <head>
 <noscript>
-<meta http-equiv="refresh" content="0; URL=<?=base_url('index.php/bad_browser');?>">
-<?=exit();?>
+   <meta http-equiv="refresh" content="0; URL=<?=base_url('index.php/bad_browser');?>">
 </noscript>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="<?=base_url('front_end/css/');?>semantic.min.css">
